@@ -12,6 +12,7 @@ SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 MONGODB_HOST=mongodb.rahulsai.com
 SCRIPT_DIR=$(pwd)
+START_TIME=$(date +%s)
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executing at: $(date)" | tee -a $LOG_FILE
@@ -100,3 +101,7 @@ fi
 
 systemctl restart catalogue &>>$LOG_FILE
 validate $? "Restarting catalogue"
+
+END_TIME=$(date +%s)
+TOTAL_TIME=$(($END_TIME-$START_TIME))
+echo -e "Script executed in $Y $TOTAL_TIME seconds $N"
