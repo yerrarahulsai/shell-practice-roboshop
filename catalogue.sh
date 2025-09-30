@@ -90,7 +90,7 @@ validate $? "Installing MongoDB client"
 # Here we should check if that collection is there or not 
 # To check that
 # We need a command to check weather a DB already exists or not (Google it)
-INDEX=$(mongosh mongodb.daws86s.fun --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
+INDEX=$(mongosh $MONGODB_HOST --quiet --eval "db.getMongo().getDBNames().indexOf('catalogue')")
 # If index is less than = 0, then create db else donot create
 if [ $INDEX -le 0 ]; then
     mongosh --host $MONGODB_HOST </app/db/master-data.js &>>$LOG_FILE
