@@ -3,9 +3,9 @@
 USER_ID=$(id -u)
 
 R="\e[31m"
-G="\[32m"
-Y="\[33m"
-N="\[0m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
