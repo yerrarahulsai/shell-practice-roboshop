@@ -52,7 +52,7 @@ validate $? "Changing to app directory"
 
 rm -rf /app/*
 
-unzip /tmp/shipping.zip &>>$LOG_FILE
+unzip /tmp/payment.zip &>>$LOG_FILE
 validate $? "Unzipping Application"
 
 pip3 install -r requirements.txt &>>$LOG_FILE
