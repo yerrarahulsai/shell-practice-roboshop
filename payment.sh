@@ -58,16 +58,16 @@ validate $? "Unzipping Application"
 pip3 install -r requirements.txt &>>$LOG_FILE
 validate $? "Installing dependencies"
 
-cp $SCRIPT_DIR/shipping.service /etc/systemd/system/shipping.service
+cp $SCRIPT_DIR/payment.service /etc/systemd/system/payment.service
 validate $? "Copying systemctl file"
 
 systemctl daemon-reload
 
-systemctl enable shipping &>>$LOG_FILE
-validate $? "Enabling Shipping"
+systemctl enable payment &>>$LOG_FILE
+validate $? "Enabling payment"
 
-systemctl restart shipping 
-validate $? "Restarting Shipping"
+systemctl restart payment 
+validate $? "Restarting payment"
 
 END_TIME=$(date +%s)
 TOTAL_TIME=$(($END_TIME-$START_TIME))
